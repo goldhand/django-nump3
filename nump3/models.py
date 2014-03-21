@@ -22,6 +22,3 @@ class Mp3(TimeStampedModel, TitleSlugDescriptionModel, ActivatorModel):
 
 	def __unicode__(self):
 		return u'%s' % self.title
-
-	def get_absolute_url(self):
-		return reverse('nump3s:detail', kwargs={'slug': self.slug})
