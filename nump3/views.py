@@ -1,7 +1,6 @@
 from django.views import generic
 
 from nupages.models import Page
-from nupages.views import PageDetail
 
 from .models import Mp3
 
@@ -13,7 +12,7 @@ class Mp3List(generic.ListView):
 	template_name = "nump3/mp3_list.html"
 
 
-class Mp3Detail(PageDetail):
+class Mp3Detail(generic.DetailView):
 	model = Mp3
 	template_name = "nump3/mp3_detail.html"
 
