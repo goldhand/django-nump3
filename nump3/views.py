@@ -21,6 +21,6 @@ class Mp3Detail(PageDetail):
 		context = super(Mp3Detail, self).get_context_data(**kwargs)
 		page = Page.objects.get_or_404(slug=context['page_slug'])
 		context.update({'page': page})
-		if context['page'].custum:
-			self.template_name = "nupages/%s.html" % context['page'].slug
+		if page.custom_template:
+			self.template_name = "nupages/%s.html" % page.slug
 		return context
