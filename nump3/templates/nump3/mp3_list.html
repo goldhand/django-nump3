@@ -1,0 +1,9 @@
+{% extends "nump3/base.html" %}
+
+{% block content %}
+<ul class="list-unstyled">
+{% for mp3 in mp3_list %}
+<li><a href="{% url 'nump3:detail' slug=mp3.slug %}">{{ mp3.title }}</a></li>
+{% endfor %}
+</ul>
+{% endblock content %}
