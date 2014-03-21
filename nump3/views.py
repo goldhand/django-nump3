@@ -1,4 +1,5 @@
 from django.views import generic
+from django.shortcuts import get_object_or_404
 
 from nupages.models import Page
 
@@ -18,7 +19,7 @@ class Mp3Detail(generic.DetailView):
 
 	def get_context_data(self, **kwargs):
 		context = super(Mp3Detail, self).get_context_data(**kwargs)
-		page = Page.objects.get_or_404(slug=context['page_slug'])
+		page = get_object_or_404(Page, slug=context['page_slug'])
 		context.update({'page': page})
 		if page.custom_template:
 			self.template_name = "nupages/%s.html" % page.slug
